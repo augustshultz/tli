@@ -16,5 +16,5 @@ def test_task_creation_with_full_json_response():
 
 
 def test_readable_task_str():
-    task = Task('Test content')
-    assert str(task) == 'Test content'
+    task = Task('Test content', id=1)
+    assert str(task) == '1 Test content'
