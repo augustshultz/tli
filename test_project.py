@@ -18,3 +18,13 @@ def test_project_with_id():
     project_id = 17
     p = Project(name='This is a name!', id=project_id)
     assert p.project_id == project_id
+
+
+def test_project_str():
+    p = Project(name='This is a name!', id=17)
+    assert str(p) == '17 This is a name!'
+
+
+def test_project_str_without_id():
+    p = Project(name='This is a name!')
+    assert str(p) == 'This is a name!'
