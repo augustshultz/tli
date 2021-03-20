@@ -6,11 +6,13 @@ class TLI(cmd.Cmd):
     prompt = 'tli → '
     intro = 'Welcome to tli, a command line interface to interact with Todoist. Type help or ? to list commands.\n'
 
-    def do_projects(self, arg):
+    @staticmethod
+    def do_projects(_):
         """Get a list of your projects."""
         get_all_projects()
 
-    def do_exit(self, args):
+    @staticmethod
+    def do_exit(_):
         """Exit the TLI tool."""
         return True
 
