@@ -9,6 +9,10 @@ class TLI(cmd.Cmd):
         """Get a list of your projects."""
         get_all_projects()
 
+    def do_exit(self, args):
+        """Exit the TLI tool."""
+        return True
+
 
 if __name__ == '__main__':
     TLI().cmdloop()
