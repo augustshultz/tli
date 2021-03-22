@@ -4,7 +4,7 @@ import config
 from urls import delete_task_url
 
 
-def parse_arguments():
+def delete_task_from_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('task_ids', nargs='+', help='The id(s) of the task(s) to be deleted.')
     arguments = parser.parse_args()
@@ -25,4 +25,4 @@ def delete_task(*, task_id):
 
 
 if __name__ == '__main__':
-    parse_arguments()
+    delete_task_from_arguments()
