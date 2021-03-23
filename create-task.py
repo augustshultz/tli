@@ -9,10 +9,14 @@ def create_task_from_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('task_name', help="The name of the task to be created.")
     arguments = parser.parse_args()
+    create_task(task_name=arguments.task_name)
+
+
+def create_task(*, task_name):
     response = requests.post(
         'https://api.todoist.com/rest/v1/tasks',
         data=json.dumps({
-            'content': arguments.task_name,
+            'content': task_name,
         }),
         headers={
             'Content-Type': 'application/json',
