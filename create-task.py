@@ -23,7 +23,7 @@ def create_task(*, task_name):
             'X-Request-Id': str(uuid.uuid4()),
             'Authorization': f'Bearer {config.api_token}'
         }).json()
-    print(response)
+    print(json.dumps(response, indent=1))
 
 
 if __name__ == '__main__':
