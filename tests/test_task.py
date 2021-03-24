@@ -8,7 +8,7 @@ def test_task_creation_succeeds_with_just_content():
 
 
 def test_task_creation_with_full_json_response():
-    with open('sample-task.json') as file:
+    with open('tests/sample-task.json') as file:
         task_response = json.load(file)
     task = Task(**task_response)
     assert task.content == task_response['content']
