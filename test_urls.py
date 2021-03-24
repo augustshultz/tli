@@ -1,5 +1,3 @@
-import pytest
-
 from urls import delete_task_url
 
 
