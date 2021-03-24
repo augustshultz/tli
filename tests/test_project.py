@@ -1,6 +1,6 @@
 import pytest
 
-from project import Project
+from models.project import Project
 
 
 def test_create_project_with_name():

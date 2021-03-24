@@ -1,5 +1,5 @@
 import json
-from task import Task
+from models.task import Task
 
 
 def test_task_creation_succeeds_with_just_content():

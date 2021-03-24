@@ -1,6 +1,6 @@
 import requests
 import config
-from project import Project
+from models.project import Project
 
 
 def get_all_projects():
