@@ -1,7 +1,7 @@
 import argparse
 import requests
 import config
-from models.task import Task
+from models import Task
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--project', '-p')
