@@ -1,7 +1,7 @@
 import argparse
 import requests
 import config
-from operations.urls import delete_task_url
+from urls import delete_task_url
 
 
 def delete_task_from_arguments():

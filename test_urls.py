@@ -1,4 +1,4 @@
-from operations.urls import delete_task_url, get_project_url
+from urls import delete_task_url, get_project_url
 
 
 def test_delete_task_url():

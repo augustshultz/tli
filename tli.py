@@ -1,5 +1,5 @@
 import cmd
-from operations.get_all_projects import get_all_projects
+from get_all_projects import get_all_projects
 
 
 class TLI(cmd.Cmd):

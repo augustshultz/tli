@@ -3,7 +3,7 @@ class Project:
     def __init__(self, **kwargs):
         if 'name' not in kwargs:
             raise TypeError('Missing "name" a required argument')
-        self.name = kwargs['name']
+        self.name: str = kwargs['name']
         self.project_id = kwargs['id'] if 'id' in kwargs else None
 
     def __str__(self):
@@ -12,3 +12,14 @@ class Project:
             output.append(str(self.project_id))
         output.append(self.name)
         return ' '.join(output)
+
+
+class Task:
+
+    def __init__(self, content, completed=False, **kwargs):
+        self.content = content
+        self.task_id = kwargs['id'] if 'id' in kwargs else None
+        self.completed = completed
+
+    def __str__(self):
+        return f'{self.task_id} {self.content}'
