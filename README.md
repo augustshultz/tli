@@ -2,7 +2,9 @@
 
 This is a CLI for interacting with Todoist.
 
-## Project status: Build out, spike phase
+## Project status: Alpha
+
+This project has just started and is not really fit for anyone to use at the moment.
 
 ## Installation
 
