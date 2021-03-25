@@ -4,7 +4,7 @@ This is a CLI for interacting with Todoist.
 
 ## Project status: Alpha
 
-This project has just started and is not really fit for anyone to use at the moment.
+This project has just started and is not ready for anyone to use.
 
 ## Installation
 
