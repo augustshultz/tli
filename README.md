@@ -2,6 +2,8 @@
 
 This is a CLI for interacting with Todoist.
 
+## Project status: Build out, spike phase
+
 ## Installation
 
 1. Clone this Repo
