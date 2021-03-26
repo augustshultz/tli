@@ -7,14 +7,20 @@ from models import Task
 def get_tasks_from_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--project_id', '-p')
+    parser.add_argument('--filter', '-f')
     arguments = parser.parse_args()
-    get_tasks(project_id=arguments.project_id)
+    get_tasks(
+        project_id=arguments.project_id,
+        tasks_filter=arguments.filter
+    )
 
 
-def get_tasks(*, project_id):
+def get_tasks(*, project_id, tasks_filter: str):
     params = {}
     if project_id:
         params['project_id'] = project_id
+    if tasks_filter:
+        params['filter'] = tasks_filter
 
     response = requests.get(
         'https://api.todoist.com/rest/v1/tasks',
