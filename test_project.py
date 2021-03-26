@@ -1,3 +1,5 @@
+import json
+
 import pytest
 
 from models import Project
@@ -28,3 +30,17 @@ def test_project_str():
 def test_project_str_without_id():
     p = Project(name='This is a name!')
     assert str(p) == 'This is a name!'
+
+
+def test_project_creation_with_json_response_sets_id():
+    with open('sample-project.json') as file:
+        project_response = json.load(file)
+    project = Project(**project_response)
+    assert project.project_id == 2203306141
+
+
+def test_project_creation_with_json_response_sets_name():
+    with open('sample-project.json') as file:
+        project_response = json.load(file)
+    project = Project(**project_response)
+    assert project.name == 'Shopping List'
