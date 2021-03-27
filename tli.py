@@ -1,5 +1,6 @@
 import cmd
 from get_all_projects import get_all_projects
+from get_tasks import get_tasks
 
 
 class TLI(cmd.Cmd):
@@ -11,6 +12,13 @@ class TLI(cmd.Cmd):
         """Get a list of your projects."""
         projects = get_all_projects()
         [print(project) for project in projects]
+
+    @staticmethod
+    def do_inbox(_):
+        """Get tasks in the inbox."""
+        projects = get_all_projects()
+        inbox, *_ = filter(lambda project: project.inbox, projects)
+        get_tasks(project_id=inbox.project_id)
 
     @staticmethod
     def do_exit(_):

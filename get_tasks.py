@@ -15,7 +15,7 @@ def get_tasks_from_arguments():
     )
 
 
-def get_tasks(*, project_id, tasks_filter: str):
+def get_tasks(*, project_id=None, tasks_filter: str = None):
     params = {}
     if project_id:
         params['project_id'] = project_id
