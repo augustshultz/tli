@@ -4,25 +4,21 @@ import config
 from urls import delete_task_url
 
 
-def delete_task_from_arguments():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('task_ids', nargs='+', help='The id(s) of the task(s) to be deleted.')
-    arguments = parser.parse_args()
-    task_ids = arguments.task_ids
-    for task_id in task_ids:
-        delete_task(task_id=task_id)
-
-
 def delete_task(*, task_id):
     url = delete_task_url(task_id=task_id)
     headers = {'Authorization': f'Bearer {config.api_token}'}
-    response = requests.delete(url, headers=headers)
+    response_status = requests.delete(url, headers=headers).status_code
 
-    if response.status_code == 204:
+    if response_status == 204:
         print('Successfully deleted task.')
     else:
         print('Something went wrong')
 
 
 if __name__ == '__main__':
-    delete_task_from_arguments()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('task_ids', nargs='+', help='The id(s) of the task(s) to be deleted.')
+    arguments = parser.parse_args()
+    task_ids = arguments.task_ids
+    for a_task_id in task_ids:
+        delete_task(task_id=a_task_id)
