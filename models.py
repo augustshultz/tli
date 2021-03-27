@@ -4,6 +4,7 @@ class Project:
         if 'name' not in kwargs:
             raise TypeError('Missing "name" a required argument')
         self.name: str = kwargs['name']
+        self.inbox: bool = kwargs.get('inbox_project', False)
         self.project_id = kwargs['id'] if 'id' in kwargs else None
 
     def __str__(self):

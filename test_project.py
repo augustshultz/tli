@@ -44,3 +44,10 @@ def test_project_creation_with_json_response_sets_name():
         project_response = json.load(file)
     project = Project(**project_response)
     assert project.name == 'Shopping List'
+
+
+def test_project_creation_with_json_response_sets_inbox():
+    with open('sample-project.json') as file:
+        project_response = json.load(file)
+    project = Project(**project_response)
+    assert not project.inbox
