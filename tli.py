@@ -9,7 +9,8 @@ class TLI(cmd.Cmd):
     @staticmethod
     def do_projects(_):
         """Get a list of your projects."""
-        get_all_projects()
+        projects = get_all_projects()
+        [print(project) for project in projects]
 
     @staticmethod
     def do_exit(_):
