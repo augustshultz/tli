@@ -18,6 +18,8 @@ def create_task(*, task_name: str) -> Task:
     })
     url = 'https://api.todoist.com/rest/v1/tasks'
     response = requests.post(url, data=data, headers=headers)
+    if response.status_code != 200:
+        raise Exception(response.reason)
     return Task(**response.json())
 
 
