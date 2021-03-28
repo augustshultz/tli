@@ -6,16 +6,16 @@ import argparse
 
 
 def create_task(*, task_name):
-    response = requests.post(
-        'https://api.todoist.com/rest/v1/tasks',
-        data=json.dumps({
-            'content': task_name,
-        }),
-        headers={
-            'Content-Type': 'application/json',
-            'X-Request-Id': str(uuid.uuid4()),
-            'Authorization': f'Bearer {config.api_token}'
-        }).json()
+    headers = {
+        'Content-Type': 'application/json',
+        'X-Request-Id': str(uuid.uuid4()),
+        'Authorization': f'Bearer {config.api_token}'
+    }
+    data = json.dumps({
+        'content': task_name,
+    })
+    url = 'https://api.todoist.com/rest/v1/tasks'
+    response = requests.post(url, data=data, headers=headers).json()
     print(json.dumps(response, indent=1))
 
 
