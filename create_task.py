@@ -1,6 +1,5 @@
 import requests
 import uuid
-import json
 import config
 import argparse
 
@@ -13,11 +12,11 @@ def create_task(*, task_name: str) -> Task:
         'X-Request-Id': str(uuid.uuid4()),
         'Authorization': f'Bearer {config.api_token}'
     }
-    data = json.dumps({
+    data = {
         'content': task_name,
-    })
+    }
     url = 'https://api.todoist.com/rest/v1/tasks'
-    response = requests.post(url, data=data, headers=headers)
+    response = requests.post(url, json=data, headers=headers)
     if response.status_code != 200:
         raise Exception(response.reason)
     return Task(**response.json())
