@@ -36,3 +36,6 @@ class Due:
         self.string = kwargs.get('string', None)
         if 'date' in kwargs:
             self.date = date.fromisoformat(kwargs['date'])
+
+    def __str__(self):
+        return self.string

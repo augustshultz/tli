@@ -31,3 +31,8 @@ def test_create_due_from_dictionary_sets_string():
 def test_create_due_from_dictionary_sets_date():
     due = Due(**sample_due)
     assert due.date == date(2021, 3, 29)
+
+
+def test_due_string():
+    due = Due(**sample_due)
+    assert str(due) == 'today'
