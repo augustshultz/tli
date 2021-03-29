@@ -1,5 +1,5 @@
 import json
-from models import Task
+from models import Task, Due
 
 
 def test_task_creation_succeeds_with_just_content():
@@ -18,3 +18,8 @@ def test_task_creation_with_full_json_response():
 def test_readable_task_str():
     task = Task('Test content', id=1)
     assert str(task) == '1 Test content'
+
+
+def test_readable_task_str_with_due_value():
+    task = Task('Test content', id=1, due={'string': 'today'})
+    assert str(task) == '1 Test content today'

@@ -1,5 +1,7 @@
 from datetime import date
 
+from typing import List
+
 
 class Project:
 
@@ -18,17 +20,6 @@ class Project:
         return ' '.join(output)
 
 
-class Task:
-
-    def __init__(self, content, completed=False, **kwargs):
-        self.content = content
-        self.task_id = kwargs['id'] if 'id' in kwargs else None
-        self.completed = completed
-
-    def __str__(self):
-        return f'{self.task_id} {self.content}'
-
-
 class Due:
 
     def __init__(self, **kwargs):
@@ -39,3 +30,18 @@ class Due:
 
     def __str__(self):
         return self.string
+
+
+class Task:
+
+    def __init__(self, content, completed=False, **kwargs):
+        self.content = content
+        self.task_id = kwargs['id'] if 'id' in kwargs else None
+        self.completed = completed
+        self.due = Due(**kwargs['due']) if 'due' in kwargs else None
+
+    def __str__(self):
+        values: List[str] = [str(self.task_id), self.content]
+        if self.due:
+            values.append(str(self.due))
+        return ' '.join(values)
