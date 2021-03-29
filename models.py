@@ -1,3 +1,6 @@
+from datetime import date
+
+
 class Project:
 
     def __init__(self, **kwargs):
@@ -24,3 +27,12 @@ class Task:
 
     def __str__(self):
         return f'{self.task_id} {self.content}'
+
+
+class Due:
+
+    def __init__(self, **kwargs):
+        self.recurring = kwargs.get('recurring', False)
+        self.string = kwargs.get('string', None)
+        if 'date' in kwargs:
+            self.date = date.fromisoformat(kwargs['date'])

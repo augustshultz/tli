@@ -11,5 +11,10 @@
   "comment_count": 0,
   "creator": 3493657,
   "created": "2021-03-02T01:23:08Z",
-  "url": "https://todoist.com/showTask?id=14756637333"
+  "url": "https://todoist.com/showTask?id=14756637333",
+  "due": {
+    "recurring": false,
+    "string": "today",
+    "date": "2021-03-29"
+  }
 }
