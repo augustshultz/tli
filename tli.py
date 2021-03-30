@@ -1,4 +1,6 @@
 import cmd
+
+from create_task import create_task
 from get_all_projects import get_all_projects
 from get_tasks import get_tasks
 
@@ -19,6 +21,11 @@ class TLI(cmd.Cmd):
         projects = get_all_projects()
         inbox, *_ = filter(lambda project: project.inbox, projects)
         get_tasks(project_id=inbox.project_id)
+
+    @staticmethod
+    def do_task(arg):
+        """Create a task in the inbox."""
+        create_task(task_name=arg)
 
     @staticmethod
     def do_exit(_):
