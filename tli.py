@@ -30,6 +30,13 @@ class TLI(cmd.Cmd):
         create_task(task_name=arg)
 
     @staticmethod
+    def do_today(_):
+        """Get tasks due today"""
+        tasks = get_tasks(tasks_filter='today')
+        for task in tasks:
+            print(task)
+
+    @staticmethod
     def do_exit(_):
         """Exit the TLI tool."""
         return True
