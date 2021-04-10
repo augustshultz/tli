@@ -1,5 +1,7 @@
 import argparse
 import requests
+from typing import List
+
 import config
 from models import Task
 
@@ -15,7 +17,7 @@ def get_tasks_from_arguments():
     )
 
 
-def get_tasks(*, project_id=None, tasks_filter: str = None):
+def get_tasks(*, project_id=None, tasks_filter: str = None) -> List[Task]:
     params = {}
     if project_id:
         params['project_id'] = project_id
@@ -28,9 +30,7 @@ def get_tasks(*, project_id=None, tasks_filter: str = None):
         headers={
             'Authorization': f'Bearer {config.api_token}'
         }).json()
-    tasks = [Task(**kwargs) for kwargs in response]
-    for task in tasks:
-        print(task)
+    return [Task(**kwargs) for kwargs in response]
 
 
 if __name__ == '__main__':

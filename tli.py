@@ -20,7 +20,9 @@ class TLI(cmd.Cmd):
         """Get tasks in the inbox."""
         projects = get_all_projects()
         inbox, *_ = filter(lambda project: project.inbox, projects)
-        get_tasks(project_id=inbox.project_id)
+        tasks = get_tasks(project_id=inbox.project_id)
+        for task in tasks:
+            print(task)
 
     @staticmethod
     def do_task(arg):
