@@ -31,8 +31,10 @@ def get_tasks(*, project_id=None, tasks_filter: str = None) -> List[Task]:
         params=params,
         headers={
             'Authorization': f'Bearer {config.api_token}'
-        }).json()
-    return [Task(**kwargs) for kwargs in response]
+        })
+    if response.status_code != 200:
+        raise Exception(f'{response.status_code}: {response.reason}')
+    return [Task(**kwargs) for kwargs in response.json()]
 
 
 if __name__ == '__main__':
