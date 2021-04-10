@@ -11,10 +11,12 @@ def get_tasks_from_arguments():
     parser.add_argument('--project_id', '-p')
     parser.add_argument('--filter', '-f')
     arguments = parser.parse_args()
-    get_tasks(
+    tasks = get_tasks(
         project_id=arguments.project_id,
         tasks_filter=arguments.filter
     )
+    for task in tasks:
+        print(task)
 
 
 def get_tasks(*, project_id=None, tasks_filter: str = None) -> List[Task]:
