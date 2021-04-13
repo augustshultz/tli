@@ -9,10 +9,8 @@ def delete_task(*, task_id):
     headers = {'Authorization': f'Bearer {config.api_token}'}
     response_status = requests.delete(url, headers=headers).status_code
 
-    if response_status == 204:
-        print('Successfully deleted task.')
-    else:
-        print('Something went wrong')
+    if response_status != 204:
+        raise Exception(f'Failed to delete task: {task_id}')
 
 
 if __name__ == '__main__':
@@ -21,4 +19,7 @@ if __name__ == '__main__':
     arguments = parser.parse_args()
     task_ids = arguments.task_ids
     for a_task_id in task_ids:
-        delete_task(task_id=a_task_id)
+        try:
+            delete_task(task_id=a_task_id)
+        except Exception as e:
+            print(str(e))
