@@ -6,17 +6,15 @@ import config
 from models import Task
 
 
-def get_tasks_from_arguments():
+def get_tasks_from_arguments() -> List[Task]:
     parser = argparse.ArgumentParser()
     parser.add_argument('--project_id', '-p')
     parser.add_argument('--filter', '-f')
     arguments = parser.parse_args()
-    tasks = get_tasks(
+    return get_tasks(
         project_id=arguments.project_id,
         tasks_filter=arguments.filter
     )
-    for task in tasks:
-        print(task)
 
 
 def get_tasks(*, project_id=None, tasks_filter: str = None) -> List[Task]:
@@ -38,4 +36,6 @@ def get_tasks(*, project_id=None, tasks_filter: str = None) -> List[Task]:
 
 
 if __name__ == '__main__':
-    get_tasks_from_arguments()
+    tasks = get_tasks_from_arguments()
+    for task in tasks:
+        print(task)
