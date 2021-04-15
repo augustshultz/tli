@@ -8,8 +8,10 @@ from models import Project
 def get_all_projects() -> Iterator[Project]:
     url = 'https://api.todoist.com/rest/v1/projects'
     headers = {'Authorization': f'Bearer {config.api_token}'}
-    response = requests.get(url, headers=headers).json()
-    return map(lambda kwargs: Project(**kwargs), response)
+    response = requests.get(url, headers=headers)
+    if response.status_code != 200:
+        raise Exception('Error fetching all projects.')
+    return map(lambda kwargs: Project(**kwargs), response.json())
 
 
 if __name__ == '__main__':
