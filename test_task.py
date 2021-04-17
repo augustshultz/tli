@@ -7,6 +7,11 @@ def test_task_creation_succeeds_with_just_content():
     assert task.content == 'Test content'
 
 
+def test_task_creation_succeeds_with_priority():
+    task = Task('Test content', priority=4)
+    assert task.priority == 4
+
+
 def test_task_creation_with_full_json_response():
     with open('sample-task.json') as file:
         task_response = json.load(file)

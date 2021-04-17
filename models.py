@@ -34,8 +34,9 @@ class Due:
 
 class Task:
 
-    def __init__(self, content, completed=False, **kwargs):
+    def __init__(self, content, completed=False, priority=1, **kwargs):
         self.content = content
+        self.priority = priority
         self.task_id = kwargs['id'] if 'id' in kwargs else None
         self.completed = completed
         self.due = Due(**kwargs['due']) if 'due' in kwargs else None
