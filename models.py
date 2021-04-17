@@ -35,6 +35,8 @@ class Due:
 class Task:
 
     def __init__(self, content, completed=False, priority=1, **kwargs):
+        if priority < 1 or priority > 4:
+            raise TypeError('Invalid priority must be 1, 2, 3, or 4')
         self.content = content
         self.priority = priority
         self.task_id = kwargs['id'] if 'id' in kwargs else None
