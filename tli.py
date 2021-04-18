@@ -3,6 +3,7 @@ import cmd
 from create_task import create_task
 from get_all_projects import get_all_projects
 from get_tasks import get_tasks
+from tasks_view import print_tasks
 
 
 class TLI(cmd.Cmd):
@@ -21,8 +22,7 @@ class TLI(cmd.Cmd):
         projects = get_all_projects()
         inbox, *_ = filter(lambda project: project.inbox, projects)
         tasks = get_tasks(project_id=inbox.project_id)
-        for task in tasks:
-            print(task)
+        print_tasks(tasks=tasks)
 
     @staticmethod
     def do_task(arg):
@@ -33,8 +33,7 @@ class TLI(cmd.Cmd):
     def do_today(_):
         """Get tasks due today"""
         tasks = get_tasks(tasks_filter='today')
-        for task in tasks:
-            print(task)
+        print_tasks(tasks=tasks)
 
     @staticmethod
     def do_exit(_):
