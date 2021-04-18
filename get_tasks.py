@@ -5,6 +5,7 @@ from typing import List
 import config
 from get_all_projects import get_all_projects
 from models import Task
+from tasks_view import print_tasks
 
 
 def get_tasks_from_arguments() -> List[Task]:
@@ -47,5 +48,4 @@ def get_inbox_tasks() -> List[Task]:
 
 if __name__ == '__main__':
     tasks = get_tasks_from_arguments()
-    for task in tasks:
-        print(task)
+    print_tasks(tasks)
