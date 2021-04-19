@@ -8,18 +8,24 @@ from models import Task
 from tasks_view import print_tasks
 
 
-def get_tasks_from_arguments() -> List[Task]:
+def get_tasks_from_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--project_id', '-p')
     parser.add_argument('--filter', '-f')
     parser.add_argument('--inbox', '-i', action='store_true')
+    parser.add_argument('--format', '-d', choices=['table', 'ids'], default='table')
+
     arguments = parser.parse_args()
     if arguments.inbox:
-        return get_inbox_tasks()
-    return get_tasks(
-        project_id=arguments.project_id,
-        tasks_filter=arguments.filter
-    )
+        tasks = get_inbox_tasks()
+    else:
+        tasks = get_tasks(project_id=arguments.project_id, tasks_filter=arguments.filter)
+
+    if arguments.format == 'table':
+        print_tasks(tasks)
+    elif arguments.format == 'ids':
+        for task in tasks:
+            print(task.task_id)
 
 
 def get_tasks(*, project_id=None, tasks_filter: str = None) -> List[Task]:
@@ -47,5 +53,4 @@ def get_inbox_tasks() -> List[Task]:
 
 
 if __name__ == '__main__':
-    tasks = get_tasks_from_arguments()
-    print_tasks(tasks)
+    get_tasks_from_arguments()
