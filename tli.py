@@ -32,7 +32,7 @@ class TLI(cmd.Cmd):
     @staticmethod
     def do_today(_):
         """Get tasks due today"""
-        tasks = get_tasks(tasks_filter='today')
+        tasks = get_tasks(tasks_filter='today | overdue')
         print_tasks(tasks=tasks)
 
     @staticmethod
