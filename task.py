@@ -1,19 +1,6 @@
 import argparse
-import requests
-import config
-from models import Task
 
-
-def get_task(task_id: str) -> Task:
-    url = f"https://api.todoist.com/rest/v1/tasks/{task_id}"
-    headers = {'Authorization': f'Bearer {config.api_token}'}
-    response = requests.get(url, headers=headers)
-
-    if response.status_code != 200:
-        raise Exception(f'Failed to get task: {task_id}')
-
-    return Task(**response.json())
-
+from get_task import get_task
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
