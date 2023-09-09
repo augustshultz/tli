@@ -14,7 +14,7 @@ def get_task_from_arguments():
 
 
 def get_task(*, task_id: str) -> Task:
-    url = f"https://api.todoist.com/rest/v1/tasks/{task_id}"
+    url = f"https://api.todoist.com/rest/v2/tasks/{task_id}"
     headers = {'Authorization': f'Bearer {config.api_token}'}
     response = requests.get(url, headers=headers)
 

@@ -41,7 +41,7 @@ class Task:
         self.priority = priority
         self.task_id = kwargs['id'] if 'id' in kwargs else None
         self.completed = completed
-        self.due: Optional[Due] = Due(**kwargs['due']) if 'due' in kwargs else None
+        self.due: Optional[Due] = Due(**kwargs['due']) if 'due' in kwargs and kwargs['due'] else None
 
     def __str__(self):
         values: List[str] = [str(self.task_id), self.content]

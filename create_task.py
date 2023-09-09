@@ -17,7 +17,7 @@ def create_task(*, task_name: str, due: str = None) -> Task:
     }
     if due:
         data['due_string'] = due
-    url = 'https://api.todoist.com/rest/v1/tasks'
+    url = 'https://api.todoist.com/rest/v2/tasks'
     response = requests.post(url, json=data, headers=headers)
     if response.status_code != 200:
         raise Exception(response.reason)

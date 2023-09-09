@@ -36,7 +36,7 @@ def get_tasks(*, project_id=None, tasks_filter: str = None) -> List[Task]:
         params['filter'] = tasks_filter
 
     response = requests.get(
-        'https://api.todoist.com/rest/v1/tasks',
+        'https://api.todoist.com/rest/v2/tasks',
         params=params,
         headers={
             'Authorization': f'Bearer {config.api_token}'
