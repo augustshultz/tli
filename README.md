@@ -11,9 +11,9 @@ This project has just started and is not ready for anyone to use.
 1. Clone this Repo
 2. Install requirement
 `pipenv sync`
-3. Copy sample.config.py to config.py
-`cp sample.config.py config.py`
-4. Replace API Token in config.py (found in Todoist Settings under Integrations)
+3. Create .env file with your Todoist api key
+`cp .env.sample .env`
+4. Replace API Token in .env (found in Todoist Settings under Integrations)
 
 ## Usage
 

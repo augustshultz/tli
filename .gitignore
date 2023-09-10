@@ -1,6 +1,6 @@
 venv
 .vscode
 __pycache__
-tli/config.py
 .idea
 .DS_Store
+.env
