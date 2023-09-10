@@ -1,6 +1,6 @@
 from datetime import date
 
-from models import Due
+from tli.models import Due
 
 sample_due = {
     "recurring": False,

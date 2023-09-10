@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from models import Task, Due
+from tli.models import Task
 
 
 def test_task_creation_succeeds_with_just_content():
@@ -28,7 +28,7 @@ def test_task_creation_fails_with_too_low_priority():
 
 
 def test_task_creation_with_full_json_response():
-    with open('sample-task.json') as file:
+    with open('tests/sample-task.json') as file:
         task_response = json.load(file)
     task = Task(**task_response)
     assert task.content == task_response['content']

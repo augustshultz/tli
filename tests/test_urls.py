@@ -1,4 +1,4 @@
-from urls import delete_task_url, get_project_url, close_task_url
+from tli.urls import delete_task_url, get_project_url, close_task_url
 
 
 def test_delete_task_url():

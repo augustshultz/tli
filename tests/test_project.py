@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from models import Project
+from tli.models import Project
 
 
 def test_create_project_with_name():
@@ -33,21 +33,21 @@ def test_project_str_without_id():
 
 
 def test_project_creation_with_json_response_sets_id():
-    with open('sample-project.json') as file:
+    with open('tests/sample-project.json') as file:
         project_response = json.load(file)
     project = Project(**project_response)
     assert project.project_id == 2203306141
 
 
 def test_project_creation_with_json_response_sets_name():
-    with open('sample-project.json') as file:
+    with open('tests/sample-project.json') as file:
         project_response = json.load(file)
     project = Project(**project_response)
     assert project.name == 'Shopping List'
 
 
 def test_project_creation_with_json_response_sets_inbox():
-    with open('sample-project.json') as file:
+    with open('tests/sample-project.json') as file:
         project_response = json.load(file)
     project = Project(**project_response)
     assert not project.inbox
