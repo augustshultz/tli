@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from tli.models import Project
+from models import Project
 
 
 def test_create_project_with_name():

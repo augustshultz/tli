@@ -17,3 +17,7 @@ run:
 .PHONY : lint
 lint:
 	pipenv run black .
+
+.PHONY : check_types
+check_types:
+	pipenv run mypy .

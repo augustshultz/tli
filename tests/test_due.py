@@ -1,6 +1,6 @@
 from datetime import date
 
-from tli.models import Due
+from models import Due
 
 sample_due = {"recurring": False, "string": "today", "date": "2021-03-29"}
 sample_due_missing_recurring = {"string": "today", "date": "2021-03-29"}

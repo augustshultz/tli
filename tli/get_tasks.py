@@ -1,6 +1,6 @@
 import argparse
 import requests
-from typing import List
+from typing import List, Optional
 
 import config
 from get_all_projects import get_all_projects
@@ -28,7 +28,7 @@ def get_tasks_from_arguments():
             print(task.task_id)
 
 
-def get_tasks(*, project_id=None, tasks_filter: str = None) -> List[Task]:
+def get_tasks(*, project_id=None, tasks_filter: Optional[str] = None) -> List[Task]:
     params = {}
     if project_id:
         params["project_id"] = project_id

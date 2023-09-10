@@ -1,3 +1,5 @@
+from typing import Optional
+
 import requests
 import uuid
 import config
@@ -6,7 +8,7 @@ import argparse
 from models import Task
 
 
-def create_task(*, task_name: str, due: str = None) -> Task:
+def create_task(*, task_name: str, due: Optional[str] = None) -> Task:
     headers = {
         "Content-Type": "application/json",
         "X-Request-Id": str(uuid.uuid4()),

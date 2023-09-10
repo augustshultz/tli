@@ -1,6 +1,6 @@
 from datetime import date
 
-from typing import List, Optional
+from typing import Optional
 
 
 class Project:
@@ -12,7 +12,7 @@ class Project:
         self.project_id = kwargs["id"] if "id" in kwargs else None
 
     def __str__(self):
-        output: [str] = []
+        output: list[str] = []
         if self.project_id:
             output.append(str(self.project_id))
         output.append(self.name)
@@ -43,7 +43,7 @@ class Task:
         )
 
     def __str__(self):
-        values: List[str] = [str(self.task_id), self.content]
+        values: list[str] = [str(self.task_id), self.content]
         if self.due:
             values.append(str(self.due))
         return " ".join(values)
