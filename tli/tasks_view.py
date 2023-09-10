@@ -22,4 +22,9 @@ def print_tasks(tasks: List[Task]):
 
 
 def task_row(task: Task) -> Tuple[str, str, str, str]:
-    return f'{task.task_id}', task.content, str(task.due) if task.due else '', f'{task.priority}'
+    return (
+        f"{task.task_id}",
+        task.content,
+        str(task.due) if task.due else "",
+        f"{task.priority}",
+    )

@@ -7,8 +7,8 @@ from tasks_view import print_tasks
 
 
 class TLI(cmd.Cmd):
-    prompt = 'tli → '
-    intro = 'Welcome to tli, a command line interface to interact with Todoist. Type help or ? to list commands.\n'
+    prompt = "tli → "
+    intro = "Welcome to tli, a command line interface to interact with Todoist. Type help or ? to list commands.\n"
 
     @staticmethod
     def do_projects(_):
@@ -32,7 +32,7 @@ class TLI(cmd.Cmd):
     @staticmethod
     def do_today(_):
         """Get tasks due today"""
-        tasks = get_tasks(tasks_filter='today | overdue')
+        tasks = get_tasks(tasks_filter="today | overdue")
         print_tasks(tasks=tasks)
 
     @staticmethod
@@ -41,5 +41,5 @@ class TLI(cmd.Cmd):
         return True
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     TLI().cmdloop()

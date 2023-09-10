@@ -4,13 +4,13 @@ from close_task import close_task
 from delete_task import delete_task
 from get_task import get_task
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('id', help='The id of the task to get.')
+    parser.add_argument("id", help="The id of the task to get.")
 
     group = parser.add_mutually_exclusive_group()
-    group.add_argument('--delete', '-d', help='The id of the task to delete.', action='store_true')
-    group.add_argument('--close', '-c', help='The id of the task to close.', action='store_true')
+    group.add_argument("--delete", "-d", help="The id of the task to delete.", action="store_true")
+    group.add_argument("--close", "-c", help="The id of the task to close.", action="store_true")
 
     arguments = parser.parse_args()
 

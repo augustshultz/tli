@@ -1,3 +1,4 @@
+.PHONY : install_dependencies
 install_dependencies:
 	pipenv sync
 
@@ -5,8 +6,14 @@ install_dependencies:
 tests:
 	pipenv run pytest tests/
 
+.PHONY : clean
 clean:
 	rm -rf .venv/ .pytest_cache/
 
+.PHONY : run
 run:
 	pipenv run python tli/tli.py
+
+.PHONY : lint
+lint:
+	pipenv run black .

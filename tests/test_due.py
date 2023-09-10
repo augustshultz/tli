@@ -2,15 +2,8 @@ from datetime import date
 
 from tli.models import Due
 
-sample_due = {
-    "recurring": False,
-    "string": "today",
-    "date": "2021-03-29"
-}
-sample_due_missing_recurring = {
-    "string": "today",
-    "date": "2021-03-29"
-}
+sample_due = {"recurring": False, "string": "today", "date": "2021-03-29"}
+sample_due_missing_recurring = {"string": "today", "date": "2021-03-29"}
 
 
 def test_create_due_from_dictionary_sets_recurring():
@@ -25,7 +18,7 @@ def test_create_due_from_dictionary_defaults_recurring_when_elided():
 
 def test_create_due_from_dictionary_sets_string():
     due = Due(**sample_due)
-    assert due.string == 'today'
+    assert due.string == "today"
 
 
 def test_create_due_from_dictionary_sets_date():
@@ -35,4 +28,4 @@ def test_create_due_from_dictionary_sets_date():
 
 def test_due_string():
     due = Due(**sample_due)
-    assert str(due) == 'today'
+    assert str(due) == "today"
