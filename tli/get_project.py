@@ -7,7 +7,7 @@ from models import Project
 from urls import get_project_url
 
 
-def get_project(project_id: str) -> Project:
+def get_project(project_id: int) -> Project:
     url = get_project_url(project_id=project_id)
     headers = {"Authorization": f"Bearer {config.api_token}"}
     response = requests.get(url, headers=headers)
@@ -18,7 +18,7 @@ def get_project(project_id: str) -> Project:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("project_id")
+    parser.add_argument("project_id", type=int)
 
     arguments = parser.parse_args()
     try:

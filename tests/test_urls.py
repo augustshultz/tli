@@ -2,7 +2,7 @@ from urls import delete_task_url, get_project_url, close_task_url
 
 
 def test_delete_task_url():
-    task_id = "4677084901"
+    task_id = 4677084901
     expected = f"https://api.todoist.com/rest/v2/tasks/{task_id}"
     assert delete_task_url(task_id=task_id) == expected
 
@@ -14,6 +14,6 @@ def test_get_project_url():
 
 
 def test_close_task_url():
-    task_id = "4677084901"
+    task_id = 4677084901
     expected = f"https://api.todoist.com/rest/v2/tasks/{task_id}/close"
     assert close_task_url(task_id=task_id) == expected
