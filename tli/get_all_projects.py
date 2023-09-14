@@ -1,17 +1,15 @@
 from typing import Iterator
 
-import requests
 import config
+from api import Api
 from models import Project
 
 
 def get_all_projects() -> Iterator[Project]:
-    url = "https://api.todoist.com/rest/v2/projects"
-    headers = {"Authorization": f"Bearer {config.api_token}"}
-    response = requests.get(url, headers=headers)
-    if response.status_code != 200:
+    status_code, response = Api(api_token=config.api_token).get(path="projects")
+    if status_code != 200:
         raise Exception("Error fetching all projects.")
-    return map(lambda kwargs: Project(**kwargs), response.json())
+    return map(lambda kwargs: Project(**kwargs), response)
 
 
 if __name__ == "__main__":
