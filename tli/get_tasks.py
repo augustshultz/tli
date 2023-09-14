@@ -3,7 +3,7 @@ import requests
 from typing import List, Optional
 
 import config
-from get_all_projects import get_all_projects
+from api import Api
 from models import Task
 from tasks_view import print_tasks
 
@@ -46,7 +46,7 @@ def get_tasks(*, project_id=None, tasks_filter: Optional[str] = None) -> List[Ta
 
 
 def get_inbox_tasks() -> List[Task]:
-    projects = get_all_projects()
+    projects = Api(api_token=config.api_token).projects()
     inbox, *_ = filter(lambda project: project.inbox, projects)
     return get_tasks(project_id=inbox.project_id)
 
