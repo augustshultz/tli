@@ -6,10 +6,7 @@ from models import Project
 
 
 def get_all_projects() -> list[Project]:
-    status_code, results = Api(api_token=config.api_token).get(path="projects")
-    if status_code != 200:
-        raise Exception("Error fetching all projects.")
-    return [Project(**result) for result in results]
+    return Api(api_token=config.api_token).projects()
 
 
 if __name__ == "__main__":

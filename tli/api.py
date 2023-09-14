@@ -2,6 +2,8 @@ from typing import NewType, Any
 
 import requests
 
+from models import Project
+
 StatusCode = NewType("StatusCode", int)
 
 
@@ -15,3 +17,9 @@ class Api:
         headers = {"Authorization": f"Bearer {self.api_token}"}
         response = requests.get(self.host + path, headers=headers)
         return StatusCode(response.status_code), response.json()
+
+    def projects(self) -> list[Project]:
+        status_code, results = self.get(path="projects")
+        if status_code != 200:
+            raise Exception("Error fetching all projects.")
+        return [Project(**result) for result in results]
