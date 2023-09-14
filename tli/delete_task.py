@@ -15,7 +15,9 @@ def delete_task(*, task_id: int):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("task_ids", type=int, nargs="+", help="The id(s) of the task(s) to be deleted.")
+    parser.add_argument(
+        "task_ids", type=int, nargs="+", help="The id(s) of the task(s) to be deleted."
+    )
     arguments = parser.parse_args()
     task_ids: list[int] = arguments.task_ids
     for a_task_id in task_ids:

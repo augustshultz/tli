@@ -10,7 +10,10 @@ from tasks_view import print_tasks
 
 class TLI(cmd.Cmd):
     prompt = "tli → "
-    intro = "Welcome to tli, a command line interface to interact with Todoist. Type help or ? to list commands.\n"
+    intro = (
+        "Welcome to tli, a command line interface to interact with Todoist. Type help or ? to"
+        " list commands.\n"
+    )
 
     @staticmethod
     def do_projects(_):

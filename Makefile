@@ -14,10 +14,14 @@ clean:
 run:
 	pipenv run python tli/tli.py
 
-.PHONY : lint
-lint:
+.PHONY : format
+format:
 	pipenv run black .
 
 .PHONY : check_types
 check_types:
 	pipenv run mypy .
+
+.PHONY : lint
+lint:
+	pipenv run ruff .
