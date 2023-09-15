@@ -3,7 +3,7 @@ import argparse
 import requests
 
 import config
-from urls import close_task_url
+from api import close_task_url
 
 
 def close_task(*, task_id):

@@ -1,7 +1,7 @@
 import argparse
 import requests
 import config
-from urls import delete_task_url
+from api import delete_task_url
 
 
 def delete_task(*, task_id: int):

@@ -23,3 +23,18 @@ class Api:
         if status_code != 200:
             raise Exception("Error fetching all projects.")
         return [Project(**result) for result in results]
+
+
+def delete_task_url(*, task_id: int) -> str:
+    return f"{_endpoint}tasks/{task_id}"
+
+
+def close_task_url(*, task_id: int) -> str:
+    return f"{_endpoint}tasks/{task_id}/close"
+
+
+def get_project_url(*, project_id: int) -> str:
+    return f"{_endpoint}projects/{project_id}"
+
+
+_endpoint: str = "https://api.todoist.com/rest/v2/"

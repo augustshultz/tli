@@ -4,7 +4,7 @@ import requests
 
 import config
 from models import Project
-from urls import get_project_url
+from api import get_project_url
 
 
 def get_project(project_id: int) -> Project:
