@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from models import Task
+from tli.models import Task
 
 
 def test_task_creation_succeeds_with_just_content():

@@ -1,5 +1,6 @@
 from dotenv import dotenv_values
 
-config = dotenv_values(".env")
 
-api_token = config["api_token"]
+def api_token() -> str:
+    config = dotenv_values(".env")
+    return config["api_token"]

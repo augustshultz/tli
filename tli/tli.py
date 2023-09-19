@@ -1,11 +1,11 @@
 import cmd
 
-import config
 from api import Api
 
 from create_task import create_task
 from get_tasks import get_tasks
 from tasks_view import print_tasks
+from config import api_token
 
 
 class TLI(cmd.Cmd):
@@ -18,13 +18,13 @@ class TLI(cmd.Cmd):
     @staticmethod
     def do_projects(_):
         """Get a list of your projects."""
-        projects = Api(api_token=config.api_token).projects()
+        projects = Api(api_token=api_token()).projects()
         [print(project) for project in projects]
 
     @staticmethod
     def do_inbox(_):
         """Get tasks in the inbox."""
-        projects = Api(api_token=config.api_token).projects()
+        projects = Api(api_token=api_token()).projects()
         inbox, *_ = filter(lambda project: project.inbox, projects)
         tasks = get_tasks(project_id=inbox.project_id)
         print_tasks(tasks=tasks)

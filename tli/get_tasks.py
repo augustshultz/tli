@@ -2,8 +2,8 @@ import argparse
 import requests
 from typing import List, Optional
 
-import config
 from api import Api
+from config import api_token
 from models import Task
 from tasks_view import print_tasks
 
@@ -38,7 +38,7 @@ def get_tasks(*, project_id=None, tasks_filter: Optional[str] = None) -> List[Ta
     response = requests.get(
         "https://api.todoist.com/rest/v2/tasks",
         params=params,
-        headers={"Authorization": f"Bearer {config.api_token}"},
+        headers={"Authorization": f"Bearer {api_token()}"},
     )
     if response.status_code != 200:
         raise Exception(f"{response.status_code}: {response.reason}")
@@ -46,7 +46,7 @@ def get_tasks(*, project_id=None, tasks_filter: Optional[str] = None) -> List[Ta
 
 
 def get_inbox_tasks() -> List[Task]:
-    projects = Api(api_token=config.api_token).projects()
+    projects = Api(api_token=api_token()).projects()
     inbox, *_ = filter(lambda project: project.inbox, projects)
     return get_tasks(project_id=inbox.project_id)
 

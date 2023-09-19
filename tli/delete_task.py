@@ -1,12 +1,12 @@
 import argparse
 import requests
-import config
 from api import delete_task_url
+from config import api_token
 
 
 def delete_task(*, task_id: int):
     url = delete_task_url(task_id=task_id)
-    headers = {"Authorization": f"Bearer {config.api_token}"}
+    headers = {"Authorization": f"Bearer {api_token()}"}
     response_status = requests.delete(url, headers=headers).status_code
 
     if response_status != 204:
