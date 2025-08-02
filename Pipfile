@@ -11,8 +11,8 @@ ruff = "*"
 
 [dev-packages]
 pytest = "*"
-black = "*"
 mypy = "*"
+black = "*"
 
 [requires]
 python_version = "3.11"
