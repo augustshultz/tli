@@ -1,10 +1,10 @@
 .PHONY : install_dependencies
 install_dependencies:
-	pipenv sync
+	uv sync
 
 .PHONY : tests
 tests:
-	pipenv run pytest tests/
+	uv run pytest tests/
 
 .PHONY : clean
 clean:
@@ -12,16 +12,16 @@ clean:
 
 .PHONY : run
 run:
-	pipenv run python tli/tli.py
+	uv run python tli/tli.py
 
 .PHONY : format
 format:
-	pipenv run black .
+	uv run black .
 
 .PHONY : check_types
 check_types:
-	pipenv run mypy .
+	uv run mypy .
 
 .PHONY : lint
 lint:
-	pipenv run ruff .
+	uv run ruff .
