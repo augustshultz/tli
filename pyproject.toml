@@ -1,3 +1,21 @@
+[project]
+name = "tli"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "requests",
+    "rich",
+    "python-dotenv",
+    "ruff",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "mypy",
+    "black",
+]
+
 [tool.pytest.ini_options]
 pythonpath = [
     "."

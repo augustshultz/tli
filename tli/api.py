@@ -2,7 +2,7 @@ from typing import NewType, Any
 
 import requests
 
-from models import Project
+from tli.models import Project
 
 StatusCode = NewType("StatusCode", int)
 
