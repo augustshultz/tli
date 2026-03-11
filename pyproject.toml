@@ -13,16 +13,12 @@ dependencies = [
 dev = [
     "pytest",
     "mypy",
-    "black",
 ]
 
 [tool.pytest.ini_options]
 pythonpath = [
     "."
 ]
-
-[tool.black]
-line-length = 100
 
 [tool.ruff]
 line-length = 100
