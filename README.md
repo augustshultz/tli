@@ -17,7 +17,7 @@ This project has just started and is not ready for anyone to use.
 
 ## Usage
 
-`uv run python tli/tli.py`
+`make run`
 
 ### Create a task
 
