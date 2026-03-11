@@ -24,4 +24,4 @@ check_types:
 
 .PHONY : lint
 lint:
-	uv run ruff .
+	uv run ruff check .
