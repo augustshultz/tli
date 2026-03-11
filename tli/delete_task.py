@@ -1,7 +1,7 @@
 import argparse
 import requests
-from api import delete_task_url
-from config import api_token
+from tli.api import delete_task_url
+from tli.config import api_token
 
 
 def delete_task(*, task_id: int):

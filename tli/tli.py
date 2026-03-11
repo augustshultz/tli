@@ -1,11 +1,11 @@
 import cmd
 
-from api import Api
+from tli.api import Api
 
-from create_task import create_task
-from get_tasks import get_tasks
-from tasks_view import print_tasks
-from config import api_token
+from tli.create_task import create_task
+from tli.get_tasks import get_tasks
+from tli.tasks_view import print_tasks
+from tli.config import api_token
 
 
 class TLI(cmd.Cmd):

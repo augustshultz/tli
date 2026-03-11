@@ -1,7 +1,7 @@
 import argparse
 import requests
-import config
-from models import Task
+import tli.config as config
+from tli.models import Task
 
 
 def get_task_from_arguments():
@@ -15,7 +15,7 @@ def get_task_from_arguments():
 
 def get_task(*, task_id: str) -> Task:
     url = f"https://api.todoist.com/rest/v2/tasks/{task_id}"
-    headers = {"Authorization": f"Bearer {config.api_token}"}
+    headers = {"Authorization": f"Bearer {config.api_token()}"}
     response = requests.get(url, headers=headers)
 
     if response.status_code != 200:

@@ -2,13 +2,13 @@ import argparse
 
 import requests
 
-import config
-from api import close_task_url
+import tli.config as config
+from tli.api import close_task_url
 
 
 def close_task(*, task_id):
     url = close_task_url(task_id=task_id)
-    headers = {"Authorization": f"Bearer {config.api_token}"}
+    headers = {"Authorization": f"Bearer {config.api_token()}"}
     response = requests.post(url, headers=headers)
 
     if response.status_code != 204:
