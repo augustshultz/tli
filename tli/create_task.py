@@ -2,17 +2,17 @@ from typing import Optional
 
 import requests
 import uuid
-import config
+import tli.config as config
 import argparse
 
-from models import Task
+from tli.models import Task
 
 
 def create_task(*, task_name: str, due: Optional[str] = None) -> Task:
     headers = {
         "Content-Type": "application/json",
         "X-Request-Id": str(uuid.uuid4()),
-        "Authorization": f"Bearer {config.api_token}",
+        "Authorization": f"Bearer {config.api_token()}",
     }
     data = {
         "content": task_name,

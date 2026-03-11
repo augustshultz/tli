@@ -2,10 +2,10 @@ import argparse
 import requests
 from typing import List, Optional
 
-from api import Api
-from config import api_token
-from models import Task
-from tasks_view import print_tasks
+from tli.api import Api
+from tli.config import api_token
+from tli.models import Task
+from tli.tasks_view import print_tasks
 
 
 def get_tasks_from_arguments():

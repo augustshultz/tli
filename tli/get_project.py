@@ -2,14 +2,14 @@ import argparse
 
 import requests
 
-import config
-from models import Project
-from api import get_project_url
+import tli.config as config
+from tli.models import Project
+from tli.api import get_project_url
 
 
 def get_project(project_id: int) -> Project:
     url = get_project_url(project_id=project_id)
-    headers = {"Authorization": f"Bearer {config.api_token}"}
+    headers = {"Authorization": f"Bearer {config.api_token()}"}
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
         raise Exception(f"Error fetching project: {project_id}")

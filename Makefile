@@ -12,7 +12,7 @@ clean:
 
 .PHONY : run
 run:
-	uv run python tli/tli.py
+	uv run python -m tli.tli
 
 .PHONY : format
 format:

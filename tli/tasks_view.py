@@ -3,7 +3,7 @@ from typing import List, Tuple
 from rich.console import Console
 from rich.table import Table
 
-from models import Task
+from tli.models import Task
 
 
 def print_tasks(tasks: List[Task]):

@@ -1,8 +1,8 @@
 import argparse
 
-from close_task import close_task
-from delete_task import delete_task
-from get_task import get_task
+from tli.close_task import close_task
+from tli.delete_task import delete_task
+from tli.get_task import get_task
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
